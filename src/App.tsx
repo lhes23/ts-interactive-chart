@@ -4,12 +4,12 @@ import { sampleData } from "./data";
 import BarChart from "./components/BarChart";
 
 function App() {
-  const [dataSetData, setDataSetData] = useState<number[]>([]);
+  const [dataSets, setDataSets] = useState<number[]>([]);
 
   const dataHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     sampleData.map((data) => {
       if (data.categoryId === e.currentTarget.id) {
-        setDataSetData(data.data);
+        setDataSets(data.data);
       }
     });
   };
@@ -34,7 +34,7 @@ function App() {
         })}
       </div>
       <div className="chartContainer">
-        <BarChart dataSets={dataSetData} />
+        <BarChart dataSets={dataSets} />
       </div>
     </div>
   );
