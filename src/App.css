@@ -46,6 +46,7 @@ body {
   width: 100%;
   /* max-width: ; */
   justify-content: center;
+  margin: 0 1rem;
 }
 
 .btnStyle {
@@ -63,7 +64,11 @@ body {
 .chartContainer {
   padding: 2rem 10rem;
   display: flex;
-  margin: 2rem;
+  margin: auto;
   justify-content: center;
   box-shadow: 0.3em 0.3em 1em darkcyan;
+  max-width: 100vh;
+  background-color: antiquewhite;
+  text-align: center;
+  border-radius: 10px;
 }

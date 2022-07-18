@@ -1,27 +1,17 @@
 import React, { useState } from "react";
 import "./App.css";
-// import Plot from "react-plotly.js";
-import { IData, sampleData } from "./data";
+import { sampleData } from "./data";
 import BarChart from "./components/BarChart";
 
 function App() {
-  // const [selectData, setSelectData] = useState<IData>(sampleData[0]);
-
   const [dataSetData, setDataSetData] = useState<number[]>([]);
 
   const dataHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-    // sampleData.map((data) => {
-    //   if (data.categoryId === e.currentTarget.id) {
-    //     setSelectData({ categoryId: e.currentTarget.id, x: data.x, y: data.y });
-    //   }
-    // });
-
     sampleData.map((data) => {
       if (data.categoryId === e.currentTarget.id) {
         setDataSetData(data.data);
       }
     });
-    console.log(e.currentTarget.id);
   };
 
   return (
@@ -44,9 +34,7 @@ function App() {
         })}
       </div>
       <div className="chartContainer">
-        <div style={{ width: "80%" }}>
-          <BarChart dataSets={dataSetData} />
-        </div>
+        <BarChart dataSets={dataSetData} />
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Chart as ChartJS, registerables } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { months, sampleData } from "../data";
+import { months } from "../data";
 ChartJS.register(...registerables);
 
 const BarChart = ({ dataSets }: { dataSets: number[] }) => {
@@ -24,7 +24,7 @@ const BarChart = ({ dataSets }: { dataSets: number[] }) => {
   };
 
   return (
-    <div>
+    <div style={{ width: "100%", backgroundColor: "#fffff" }}>
       <Bar data={data} height={200} options={options} />
     </div>
   );
