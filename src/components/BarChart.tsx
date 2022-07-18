@@ -1,57 +1,64 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Chart as ChartJS, registerables } from "chart.js";
 import { Bar } from "react-chartjs-2";
-
+import { months, sampleData } from "../data";
 ChartJS.register(...registerables);
 
-const financeData = [
-  {
-    month: "Jan",
-    income: 72654.56,
-    expense: 72724.22,
-  },
-  {
-    month: "Feb",
-    income: 82427.0,
-    expense: 108479.33,
-  },
-  {
-    month: "Mar",
-    income: 87749.0,
-    expense: 110531.68,
-  },
-];
-
-const data = {
-  labels: financeData.map((d) => d.month),
-  datasets: [
-    {
-      label: "Income",
-      data: financeData.map((d) => d.income),
-      backgroundColor: ["rgba(75, 192, 192, 0.5)"],
-      borderColor: ["green"],
-      borderWidth: 1,
-    },
-    {
-      label: "Expense",
-      data: financeData.map((d) => d.expense),
-      backgroundColor: ["rgba(255, 99, 132, 0.5)"],
-      borderColor: ["red"],
-      borderWidth: 1,
-    },
-  ],
-};
-
 const options = {
-  maintainAspectRatio: false,
+  maintainAspectRatio: true,
   responsive: true,
 };
 
-const BarChart = () => {
-  console.log(financeData.map((d) => d.month));
+const BarChart = ({ categoryId }: { categoryId: string }) => {
+  const mySampleData = [
+    {
+      categoryId: "2020",
+      data: [
+        5000, -17000, 15000, 8000, 20000, -600, 13000, 20000, -9000, 4000,
+        17000, -40000,
+      ],
+    },
+    {
+      categoryId: "2021",
+      data: [
+        5000, -17000, 15000, 8000, 20000, -600, 13000, 20000, -9000, 4000,
+        17000, -40000,
+      ],
+    },
+    {
+      categoryId: "2022",
+      data: [
+        5000, -17000, 15000, 8000, 20000, -600, 13000, 20000, -9000, 4000,
+        17000, -40000,
+      ],
+    },
+  ];
+
+  const [dataSetData, setDataSetData] = useState<number[]>([]);
+  useEffect(() => {
+    mySampleData.map((data) => {
+      if (data.categoryId === categoryId) {
+        setDataSetData(data.data);
+      }
+    });
+  }, [categoryId]);
+
+  const data = {
+    labels: months,
+    datasets: [
+      {
+        label: "Cashflow",
+        data: dataSetData,
+        backgroundColor: ["rgba(75, 192, 192, 0.5)"],
+        borderColor: ["green"],
+        borderWidth: 1,
+      },
+    ],
+  };
+
   return (
     <div>
-      <Bar data={data} height={400} />
+      <Bar data={data} height={200} options={options} />
     </div>
   );
 };

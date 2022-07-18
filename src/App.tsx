@@ -5,22 +5,23 @@ import { IData, sampleData } from "./data";
 import BarChart from "./components/BarChart";
 
 function App() {
-  // const [selectData, setSelectData] = useState<IData>(sampleData[0]);
+  const [selectData, setSelectData] = useState<IData>(sampleData[0]);
 
-  // const dataHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-  //   sampleData.map((data) => {
-  //     if (data.categoryId === e.currentTarget.id) {
-  //       setSelectData({ categoryId: e.currentTarget.id, x: data.x, y: data.y });
-  //     }
-  //   });
-  // };
+  const dataHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+    sampleData.map((data) => {
+      if (data.categoryId === e.currentTarget.id) {
+        setSelectData({ categoryId: e.currentTarget.id, x: data.x, y: data.y });
+      }
+    });
+  };
 
+  console.log(selectData);
   return (
     <div className="App">
       <header className="App-header">
         <h1>Interactive Chart</h1>
       </header>
-      {/* <div className="btnContainer">
+      <div className="btnContainer">
         {sampleData.map((data) => {
           return (
             <button
@@ -33,15 +34,11 @@ function App() {
             </button>
           );
         })}
-      </div> */}
-      <div className="chartContainer">
-        {/* <Plot
-            data={[{ type: "bar", x: selectData?.x, y: selectData?.y }]}
-            layout={{ title: "Interactive Chart" }}
-          /> */}
       </div>
-      <div>
-        <BarChart />
+      <div className="chartContainer">
+        <div style={{ width: "50%" }}>
+          <BarChart categoryId="2021" />
+        </div>
       </div>
     </div>
   );

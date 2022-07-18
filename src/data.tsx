@@ -4,7 +4,7 @@ export type IData = {
   y: number[];
 };
 
-const months = [
+export const months = [
   "Jan",
   "Feb",
   "Mar",
