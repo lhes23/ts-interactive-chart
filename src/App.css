@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+/* * {
+  outline: 1px solid lime;
+} */
+
+.btnContainer {
+  display: flex;
+  width: 100%;
+  /* max-width: ; */
+  justify-content: center;
+}
+
+.btnStyle {
+  padding: 1rem 1rem;
+  margin: 0.5rem;
+  width: 8rem;
+  border-radius: 3rem;
+  border: 0;
+}
+
+.btnStyle:hover {
+  background-color: aqua;
+  box-shadow: 0.3em 0.3em 1em darkcyan;
+}
+.chartContainer {
+  display: flex;
+  margin: auto;
+  width: 100%;
+  justify-content: center;
+}

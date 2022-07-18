@@ -18,23 +18,24 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Interactive Chart</h1>
-        <div>
+        <div className="btnContainer">
           {sampleData.map((data) => {
             return (
               <button
                 id={data.categoryId}
                 onClick={dataHandler}
                 className="btnStyle"
+                key={data.categoryId}
               >
                 {data.categoryId}
               </button>
             );
           })}
         </div>
-        <div>
+        <div className="chartContainer">
           <Plot
             data={[{ type: "bar", x: selectData?.x, y: selectData?.y }]}
-            layout={{ width: 600, height: 300, title: "Interactive Chart" }}
+            layout={{ title: "Interactive Chart" }}
           />
         </div>
       </header>
