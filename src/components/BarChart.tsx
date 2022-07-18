@@ -24,9 +24,9 @@ const BarChart = ({ dataSets }: { dataSets: number[] }) => {
   };
 
   return (
-    <div style={{ width: "100vh" }}>
-      <Bar data={data} height={200} />
-    </div>
+    <>
+      <Bar data={data} height="100%" width="100%" options={options} />
+    </>
   );
 };
 
