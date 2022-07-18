@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Chart as ChartJS, registerables } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { months } from "../data";
@@ -25,7 +25,7 @@ const BarChart = ({ dataSets }: { dataSets: number[] }) => {
 
   return (
     <>
-      <Bar data={data} height="100%" width="100%" options={options} />
+      <Bar data={data} height="60%" width="100%" options={options} />
     </>
   );
 };

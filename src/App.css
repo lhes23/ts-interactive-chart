@@ -3,16 +3,15 @@ body {
   background-color: #bdc1c8;
 }
 
+:root {
+  --primary: green;
+}
+
 .App {
   text-align: center;
   height: 100%;
   min-height: 100vh;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  color: var(--primary);
 }
 
 .App-header {
@@ -20,8 +19,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #181717;
+  font-size: 10px;
 }
 
 .App-link {
@@ -43,22 +41,22 @@ body {
 
 .btnContainer {
   display: flex;
-  width: 100%;
-  /* max-width: ; */
   justify-content: center;
   margin: 0 1rem;
 }
 
 .btnStyle {
-  padding: 1rem 1rem;
+  padding: 0.5rem 0.5rem;
   margin: 0.5rem;
   width: 8rem;
   border-radius: 3rem;
-  border: 0;
+  border: 2px solid green;
+  background-color: transparent;
+  color: inherit;
 }
 
 .btnStyle:hover {
-  background-color: aqua;
+  background-color: rgb(99, 225, 120);
   box-shadow: 0.3em 0.3em 1em darkcyan;
 }
 .chartContainer {
@@ -66,7 +64,7 @@ body {
   display: flex;
   margin: auto;
   justify-content: center;
-  box-shadow: 0.3em 0.3em 1em darkcyan;
+  box-shadow: 0.3em 0.3em 1em rgb(140, 156, 156);
   max-width: 100vh;
   background-color: antiquewhite;
   text-align: center;
